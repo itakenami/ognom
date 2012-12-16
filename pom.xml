@@ -15,14 +15,22 @@
     </properties>
 	
     <repositories>
-		<repository>
-			<id>takenami-m2.repository</id>
-		    <name>Repositorio de Projetos Maven - Takenami</name>
-		    <url>http://www.takenami.com.br/maven/release/</url>
-		</repository>
+        <repository>
+            <id>takenami-m2.repository</id>
+            <name>Repositorio de Projetos Maven - Takenami</name>
+            <url>http://www.takenami.com.br/maven/release/</url>
+        </repository>
     </repositories>
     
+    <distributionManagement>
+        <repository>
+            <id>ftp-repository</id>
+            <url>ftp://ftp.takenami.com.br/public_html/maven/release</url>
+        </repository>
+    </distributionManagement>
+    
     <build>
+        
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -34,25 +42,35 @@
                 </configuration>
             </plugin>
         </plugins>
+        
+        <extensions>
+            <!-- Enabling the use of FTP -->
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ftp</artifactId>
+                <version>2.3</version>
+            </extension>
+        </extensions>
+        
     </build>
 
     <dependencies>
 		
         <!-- Dependencia de Testes -->
         
-		<dependency>
-		    <groupId>junit</groupId>
-		    <artifactId>junit</artifactId>
-		    <version>4.11</version>
-		</dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+        </dependency>
         
         <!-- Dependencia de LIB -->
         
-		<dependency>
-		    <groupId>org.mongodb</groupId>
-		    <artifactId>mongo-java-driver</artifactId>
-		    <version>2.10.1</version>
-		</dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>2.10.1</version>
+        </dependency>
         
     </dependencies>
     
