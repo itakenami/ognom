@@ -11,9 +11,7 @@ Biblioteca de Classes Java para trabalhar com ORM utilizando o MongoDB.
 
 Sample for use Ognom:
 
-``` java
-Model Class	
-
+``` java	
 	import ognom.Model;
 	import ognom.annotation.Entity;
 	import ognom.db.Config;
